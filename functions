@@ -1,0 +1,23 @@
+import requests
+from bs4 import BeautifulSoup
+
+def scrape_bsu_website(url):
+    try:
+        response = requests.get(url)
+        if response.status_code == 200:
+            # Parse the HTML content
+            soup = BeautifulSoup(response.text, 'html.parser')
+            # Extract and return relevant data
+            data = soup.find('div', {'class': 'bsu-data'})
+            return data.text
+        else:
+            print(f"Failed to fetch data. Status code: {response.status_code}")
+            return None
+    except Exception as e:
+        print(f"An error occurred: {str(e)}")
+        return None
+
+def clean_data(raw_data):
+    # Implement data cleaning logic here (e.g., removing duplicates, handling missing values)
+    cleaned_data = raw_data  # Placeholder, replace with actual cleaning steps
+    return cleaned_data
