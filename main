@@ -1,6 +1,6 @@
 def main():
     # Specify the BSU data source URL
-    bsu_url = 'https://www.bsu.edu/data-source'
+    bsu_url = 'https://ecatalog.buffalostate.edu/graduate/courses/dsa/'
     
     # Collect data from BSU website
     raw_data = scrape_bsu_website(bsu_url)
